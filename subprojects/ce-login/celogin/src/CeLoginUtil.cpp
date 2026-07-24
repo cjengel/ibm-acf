@@ -529,6 +529,18 @@ CeLogin::CeLoginRc CeLogin::getServiceAuthorityFromFrameworkEc(
         {
             authParm = ServiceAuth_CE;
         }
+        else if (frameworkEcLengthParm == strlen(FrameworkEc_P12_Dev) &&
+                 0 == memcmp(frameworkEcParm, FrameworkEc_P12_Dev,
+                             frameworkEcLengthParm))
+        {
+            authParm = ServiceAuth_Dev;
+        }
+        else if (frameworkEcLengthParm == strlen(FrameworkEc_P12_Service) &&
+                 0 == memcmp(frameworkEcParm, FrameworkEc_P12_Service,
+                             frameworkEcLengthParm))
+        {
+            authParm = ServiceAuth_CE;
+        }
         else
         {
             sRc = CeLoginRc::GetAuthFromFrameworkEc_InvalidFrameworkEc;
